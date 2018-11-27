@@ -1,5 +1,6 @@
 # Actividades y socios de una mutual 
-El objetivo del programa es modelar distintas actividades que ofrece la mutual de cocineros "Le grand Chef", y cómo se manejan los socios respecto de estas actividades.
+El objetivo del programa es modelar distintas actividades que ofrece la mutual de cocineros "Le grand Chef", y 
+cómo se manejan los socios respecto de estas actividades.
 
 
 ## 1. Viajes 
@@ -17,26 +18,33 @@ El resto de la información requerida depende del _tipo de viaje_, de acuerdo a 
 
 ### Viajes de playa.
 De cada **viaje de playa** se informa el largo de la playa, medido en metros. 
-Para calcular _cuántos días_ lleva un viaje de playa, se hace esta cuenta: `largo / 500`. Un viaje de playa _implica esfuerzo_ si el largo de la playa supera los 1200 metros. Tdoos los viajes de playa _sirven para broncearse_.
+Para calcular _cuántos días_ lleva un viaje de playa, se hace esta cuenta: `largo / 500`. 
+Un viaje de playa _implica esfuerzo_ si el largo de la playa supera los 1200 metros. 
+Tdoos los viajes de playa _sirven para broncearse_.
 
 ### Excursión a ciudad
 De cada **excursión a ciudad** se informa cuántas atracciones se van a visitar. 
-Los _días_ que lleva un viaje de este tipo se calculan como `cantidad de atracciones / 2`. Una excursión _implica esfuerzo_ si se visitan entre al menos 5 atracciones, y nunca _sirve para broncearse_. 
+Los _días_ que lleva un viaje de este tipo se calculan como `cantidad de atracciones / 2`. 
+Una excursión _implica esfuerzo_ si se visitan entre al menos 5 atracciones, y nunca _sirve para broncearse_. 
 
-Un caso especial son las **excursiones a ciudad tropical**. Son como las excursiones a ciudad, con las siguientes variantes: dura un día más que una excursión a ciudad de las mismas características, y sí sirve para broncearse, siempre.
+Un caso especial son las **excursiones a ciudad tropical**. 
+Son como las excursiones a ciudad, con las siguientes variantes: dura un día más que una excursión a ciudad de las mismas características, 
+y sí sirve para broncearse, siempre.
 
 P.ej.:
 - una excursión a ciudad normal (no tropical) en la que se visitan 4 atracciones, lleva 2 días, no implica esfuerzo, y no sirve para broncearse. 
 - una excursión a ciudad tropical en la que se visitan 4 atracciones, lleva 3 días, no implica esfuerzo, y sí sirve para broncearse.
 - una excursión a ciudad normal (no tropical) en la que se visitan 8 atracciones, lleva 4 días, implica esfuerzo, y no sirve para broncearse. 
 - una excursión a ciudad tropical en la que se visitan 8 atracciones, lleva 5 días, implica esfuerzo, y sirve para broncearse. 
-- una excursión a ciudad tropical en la que se visitan 10 atracciones, lleva 6 días, no implica esfuerzo, y sí sirve para broncearse. 
+- una excursión a ciudad tropical en la que se visitan 10 atracciones, lleva 6 días, implica esfuerzo, y sí sirve para broncearse. 
 
 
 ### Salida de trekking
-De cada una **salida de trekking** se conoce, cuántos kilómetros de senderos se van a recorrer caminando, y cuántos días de sol por año tiene el lugar donde se va a hacer.  
+De cada una **salida de trekking** se conoce, cuántos kilómetros de senderos se van a recorrer caminando, 
+y cuántos días de sol por año tiene el lugar donde se va a hacer.  
 Los _días_ que lleva una salida se calculan como `kilometros de senderos / 50`. 
-Una salida _implica esfuerzo_ si se recorren más de 80 kilómetros, y _sirve para broncearse_ si en el lugar hay más de 200 días de sol por año, o hay entre 100 y 200, y se recorren más de 120 kilómetros.
+Una salida _implica esfuerzo_ si se recorren más de 80 kilómetros, 
+y _sirve para broncearse_ si en el lugar hay más de 200 días de sol por año, o hay entre 100 y 200, y se recorren más de 120 kilómetros.
  
 P.ej. 
 * una salida de 100 kilómetros a un lugar con 130 días de sol por año: lleva 2 días, implica esfuerzo, y no sirve para broncearse. 
@@ -48,7 +56,8 @@ P.ej.
 ## 2. Viajes interesantes
 Agregar al modelo la capacidad de preguntar si un viaje _es interesante_. 
 Por lo general, la condición es que se use más de un idioma, p.ej. quechua y aymara, o francés, alemán y húngaro. Hay que contemplar estas variantes:
-* las _excursiones a ciudad_ (tropical o no) se consideran interesantes si se cumple la condición general, **o bien**, se recorren exactamente 5 atracciones (ni más ni menos, exactamente 5).
+* las _excursiones a ciudad_ (tropical o no) se consideran interesantes si se cumple la condición general, **o bien**, 
+se recorren exactamente 5 atracciones (ni más ni menos, exactamente 5).
 * las _salidas de trekking_ se consideran interesantes si se cumple la condición general, **y además** en el lugar hay más de 140 días de sol por año.
 
 <br>
@@ -66,30 +75,36 @@ Se deben resolver las mismas cuatro preguntas que para los viajes, que se respon
 <br>
 
 ## 4. Socios, agregar actividad
-Agregar al modelo los **socios**. De cada socio se debe registrar _qué actividades realizó_, que pueden ser viajes o clases de gimnasia. Para cada socio se establece también un _máximo de actividades_ que puede hacer.
+Agregar al modelo los **socios**. De cada socio se debe registrar _qué actividades realizó_, que pueden ser viajes o clases de gimnasia. 
+claPara cada socio se establece también un _máximo de actividades_ que puede hacer.
 
 Para un socio, se pide:
 * poder consultar si es, o no, _adorador del sol_. La condición es que todas actividades que realizó sirven para broncearse.
 * poder consultar la colección de _actividades esforzadas_, o sea, las actividades que realizó que implican esfuerzo.
 * registrar que realiza una actividad. Si ya llegó al máximo de actividades que puede hacer, hay que lanzar error.
 
-P.ej. tomemos a Roque, un socio que hizo 2 viajes a la playa, con longitudes de 1000 y 2000 metros respectivamente, y que tiene un máximo de 2 actividades. En este caso:
+P.ej. tomemos a Roque, un socio que hizo 2 viajes a la playa, con longitudes de 1000 y 2000 metros respectivamente, 
+y que tiene un máximo de 2 actividades. En este caso:
 * `roque.esAdoradorDelSol()` devuelve `true`.
 * `roque.actividadesEsforzadas()` devuelve una colección que tiene solamente el viaje de 2000 metros de playa.
 * si registramos que Roque realiza una clase de gimnasia, se debe generar un error.
 
-Si Ana es una socia que hizo dos viajes iguales a los que hizo Roque, pero tiene un máximo de 3 actividades, entonces sí le podemos registrar una clase de gimnasia. Después de registrarla, obtenemos que Ana ya no es adoradora del sol, y su colección de actividades esforzadas incluye al viaje de 2000 metros de playa y a la clase. 
+Si Ana es una socia que hizo dos viajes iguales a los que hizo Roque, pero tiene un máximo de 3 actividades, entonces sí le podemos registrar una clase de gimnasia. 
+Después de registrarla, obtenemos que Ana ya no es adoradora del sol, y su colección de actividades esforzadas incluye al viaje de 2000 metros de playa y a la clase. 
 
 <br>
 
 ## 5. Actividades que le atraen a cada socio
 Se debe agregar al modelo la pregunta de si una actividad _le atrae_ a un socio o no.  
-Para ello, se debe agregar para cada socio, la edad, y la colección de idiomas que habla (en realidad, la edad se usa recién en el punto siguiente, pero cuesta poco agregarla ahora).  
+Para ello, se debe agregar para cada socio, la edad, y la colección de idiomas que habla 
+(en realidad, la edad se usa recién en el punto siguiente, pero cuesta poco agregarla ahora).  
 La condición depende del _tipo_ de socio, de acuerdo a lo siguiente:
 
 * si es un **socio tranquilo**, entonces la condición es que la actividad lleve 4 días o más.
 * si es un **socio coherente**, entonces: si es adorador del sol, entonces la actividad debe servir para broncearse, si no, debe implicar esfuerzo.
-* si es un **socio relajado**, la condición es hablar al menos uno de los idiomas que se usan en la actividad. P.ej. si un socio relajado habla español y quechua, entonces una actividad en español le va a atraer, una en quechua y aymará también, una en francés e italiano no. 
+* si es un **socio relajado**, la condición es hablar al menos uno de los idiomas que se usan en la actividad. 
+P.ej. si un socio relajado habla español y quechua, entonces una actividad en español le va a atraer, una en quechua y aymará también, 
+una en francés e italiano no. 
 
 <br>
 

@@ -1,0 +1,72 @@
+import viajes.*
+import socios.*
+
+describe "actividades de mutual"{
+	var excursionCiudad1 = new ExcursionACiudad (cantidadAtracciones=4)
+	var excursionTropical1 = new ExcursionTropical (cantidadAtracciones=4) 
+    var excursionCiudad2 = new ExcursionACiudad (cantidadAtracciones=8)
+    var excursionTropical2 = new ExcursionTropical (cantidadAtracciones=8)
+    var excursionTropical3 = new ExcursionTropical (cantidadAtracciones=10)
+    var trekking1 = new Trekking(kilometrosSenderos=100,diasDeSolPorAnio=130)
+    var trekking2 = new Trekking(kilometrosSenderos=50,diasDeSolPorAnio=240)
+    var trekking3 = new Trekking(kilometrosSenderos=250,diasDeSolPorAnio=130)
+    var playa1 = new Playa(largoPlaya=1000)
+    var playa2 = new Playa(largoPlaya=2000)
+    var gym = new Gym ()
+    var roque = new Relajado(edad=40,idiomasQueHabla=#{"frances","italiano"},actividadesRealizadas=#{playa1,playa2}, maxActividades=2)
+    var ana = new Coherente(edad=30,idiomasQueHabla=#{"espaniol"},actividadesRealizadas=#{playa1,playa2},maxActividades=3)
+    
+   test "cantidad de dias" {
+     assert.equals(2,excursionCiudad1.diasActividad())
+     assert.equals(4,excursionCiudad2.diasActividad())
+     assert.equals(3,excursionTropical1.diasActividad())
+     assert.equals(5,excursionTropical2.diasActividad())
+     assert.equals(6,excursionTropical3.diasActividad())
+     assert.equals(2,trekking1.diasActividad())
+     assert.equals(1,trekking2.diasActividad())
+     assert.equals(5,trekking3.diasActividad())
+    }
+    
+    test "implica esfuerzo"{
+     assert.that(not excursionCiudad1.implicaEsfuerzo())
+     assert.that(excursionCiudad2.implicaEsfuerzo())
+     assert.that(not excursionTropical1.implicaEsfuerzo())
+     assert.that(excursionTropical2.implicaEsfuerzo())
+     assert.that(excursionTropical3.implicaEsfuerzo())
+     assert.that(trekking1.implicaEsfuerzo())
+     assert.that(not trekking2.implicaEsfuerzo())
+     assert.that(trekking3.implicaEsfuerzo())	
+    }
+    
+    test "sirve para broncearse"{
+     assert.that(not excursionCiudad1.sirveParaBroncearse())
+     assert.that(not excursionCiudad2.sirveParaBroncearse())
+     assert.that(excursionTropical1.sirveParaBroncearse())
+     assert.that(excursionTropical2.sirveParaBroncearse())
+     assert.that(excursionTropical3.sirveParaBroncearse())
+     assert.that(not trekking1.sirveParaBroncearse())
+     assert.that(trekking2.sirveParaBroncearse())
+     assert.that(trekking3.sirveParaBroncearse())
+    }
+    
+    test"roque"{
+    	assert.that(roque.esAdoradorDelSol())
+    	assert.equals(#{playa2},roque.actividadesEsforzadas())
+    	assert.throwsExceptionWithMessage("Se alcanzo el limite de actividades",{roque.agregarActividad(gym)})
+    }
+    
+    test "ana"{
+    	ana.agregarActividad(gym)
+    	assert.equals(#{playa1,playa2,gym})
+    }
+    
+    test "roque relajado"{
+    	assert.that(not roque.meAtrae(gym) )
+    }
+    
+    test "ana coherente"{
+    	assert.that(ana.meAtrae(excursionTropical1))
+    }
+    
+  
+}
